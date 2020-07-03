@@ -1,4 +1,4 @@
-import { SEARCH_CITY, FETCH_RESTAURANTS ,FILTER_RRSTAURANT} from './types';
+import { SEARCH_CITY, FETCH_RESTAURANTS ,FILTER_RESTAURANTS} from './types';
 import axios from 'axios';
 
 
@@ -14,6 +14,7 @@ export const fetchRestaurants = text => dispatch => {
         .then(response =>
         dispatch({
             type: FETCH_RESTAURANTS,
+            text: text,
             payload: response.data.restaurants
         })
         )
@@ -21,15 +22,15 @@ export const fetchRestaurants = text => dispatch => {
 
 };
 export const filterRest = (restaurants,name) => dispatch => {
+    console.log(restaurants)
     return dispatch({
-         type:FILTER_RRSTAURANT,
+         type:FILTER_RESTAURANTS,
          payload:{
              name:name,
-            
-             items:name===''?restaurants:restaurants.filter(restaurant=>{
-                 return restaurant.name.toLowerCase().includes(name)
+        //      items:name===''?restaurants:restaurants.filter(restaurant=>{
+        //          return restaurant.name.toLowerCase().includes(name)
                  
-         })
+        //  })
         }
     })
  

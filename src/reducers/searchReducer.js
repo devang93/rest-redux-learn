@@ -1,12 +1,10 @@
-import {SEARCH_CITY, FETCH_RESTAURANTS ,FILTER_RRSTAURANT } from '../actions/types';
+import {SEARCH_CITY, FETCH_RESTAURANTS ,FILTER_RESTAURANTS } from '../actions/types';
 
 const initialState = {
   text: '',
   restaurants: [],
-  loading: false,
   filteredRest:[],
-  name:'',
-  
+  name:''
 };
 
 export default function(state = initialState, action){
@@ -14,22 +12,19 @@ export default function(state = initialState, action){
         case SEARCH_CITY:
         return {
         ...state,
-        text: action.payload,
-        loading: false
+        text: action.payload
     };
     case FETCH_RESTAURANTS:
       return {
         ...state,
+        text: action.text,
         restaurants: action.payload,
-        filteredRest: action.payload,
-        loading: false
+        filteredRest: action.payload
       };
-    case FILTER_RRSTAURANT:
+    case FILTER_RESTAURANTS:
       return {
         ...state,
-        filteredRest: action.payload.items,
-        name: action.payload.name,
-        loading: false
+        name: action.payload.name
       };
 
     default:
