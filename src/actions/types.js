@@ -1,0 +1,4 @@
+export const SEARCH_CITY = 'SEARCH_CITY';
+export const FETCH_RESTAURANTS = 'FETCH_RESTAURANTS';
+export const FILTER_RRSTAURANT = 'FILTER_RRSTAURANT';
+export const LOADING = 'LOADING';
